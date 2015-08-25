@@ -1,0 +1,28 @@
+<h1>There are <%= pluralize(@projects.size, 'project') %> </h1>
+
+<div>
+    <% @projects.each do |project| %>
+        <header>
+          <h1><%= link_to(project.name, project_path(project)) %></h1>
+        </header>
+      <p><%= truncate(project.description, length: 25, separator: ' ') %></p>
+        <table>
+          <tr>
+            <th>Target Pledge Amount</th>
+            <td><%= project.target_pledge_amount %></td>
+          </tr>
+          <tr>
+            <th>Website</th>
+            <td><%= project.website %></td>
+          </tr>
+          <tr>
+            <th>Created At</th>
+            <td><%= project.created_at %></td>
+          </tr>
+          <tr>
+            <th>Pledging Ends On</th>
+            <td><%= format_project_end_date(project) %></td>
+          </tr>
+        </table>
+    <% end %>
+</div>

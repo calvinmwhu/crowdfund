@@ -1,0 +1,27 @@
+<header>
+  <h1><%= @project.name %></h1>
+</header>
+<p><%= truncate(@project.description, length: 25, separator: ' ') %></p>
+<table>
+  <tr>
+    <th>Target Pledge Amount</th>
+    <td><%= @project.target_pledge_amount %></td>
+  </tr>
+  <tr>
+    <th>Website</th>
+    <td><%= @project.website %></td>
+  </tr>
+  <tr>
+    <th>Created At</th>
+    <td><%= @project.created_at %></td>
+  </tr>
+  <tr>
+    <th>Pledging Ends On</th>
+    <td><%= format_project_end_date(@project) %></td>
+  </tr>
+</table>
+
+<nav>
+  <h1><%= link_to("All Projects", root_path) %></h1>
+  <h1><%= link_to("Edit project", edit_project_path) %></h1>
+</nav>
